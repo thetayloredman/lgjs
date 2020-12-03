@@ -16,13 +16,26 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import type LogEntry from '../interfaces/LogEntry';
-import type LoggerOptions from '../interfaces/LoggerOptions';
+import * as fs from 'fs/promises';
 
-/**
- * Class to represent logging
- * @class
- */
-export default class Logger {
-    public constructor(options: LoggerOptions) {}
+export default function ensureDir(path: string): Promise<boolean> {
+    return new Promise((resolve, reject) => {
+        fs.readdir(path)
+            .then((files) => {
+                resolve(false);
+            })
+            .catch((e) => {
+                if (e.code !== 'ENOENT') {
+                    throw new Error(e);
+                } else {
+                    fs.mkdir(path)
+                        .then(() => {
+                            resolve(true);
+                        })
+                        .catch((e) => {
+                            throw new Error(e);
+                        });
+                }
+            });
+    });
 }

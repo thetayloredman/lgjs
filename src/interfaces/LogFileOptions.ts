@@ -16,13 +16,6 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import type LogEntry from '../interfaces/LogEntry';
-import type LoggerOptions from '../interfaces/LoggerOptions';
-
-/**
- * Class to represent logging
- * @class
- */
-export default class Logger {
-    public constructor(options: LoggerOptions) {}
+export default interface LogFileOptions {
+    logsDir?: string;
 }
