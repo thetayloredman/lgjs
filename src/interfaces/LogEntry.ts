@@ -16,4 +16,16 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-export * from './logger/Logger';
+import type Levels from './Levels';
+
+export default interface LogEntry {
+    message: string, // the log message
+    type: Levels, // the log type
+    stack: string[], // the stack trace
+    time: number, // the timestamp
+    sender: { // sender info
+        facility: string, // the item like "cored: "
+        section: string, // the "(section)" after facility
+        bundle: { id: string, sec: string } // the [com.company.id:sec]
+    }
+}

@@ -16,4 +16,6 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-export * from './logger/Logger';
+type Levels = 'debug' | 'info' | 'notice' | 'warning' | 'err' | 'crit' | 'alert' | 'emerg';
+
+export default Levels;
