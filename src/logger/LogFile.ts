@@ -43,7 +43,6 @@ export default class LogFile {
      * Makes the base directory for the LogFile
      * @private
      * @function
-     * @returns {undefined}
      */
     private _init(): void {
         ensureDir(this.baseDir).then(() => {
