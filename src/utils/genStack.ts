@@ -16,12 +16,12 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import type LoggerOptions from '../interfaces/LoggerOptions';
-
-/**
- * Class to represent logging
- * @class
- */
-export default class Logger {
-    public constructor(options: LoggerOptions) {}
+export default function genStack(): string[] {
+    const tempErr = new Error();
+    const stack = (tempErr.stack ?? '').split('\n');
+    stack.shift();
+    stack.forEach((v, i) => {
+        stack[i] = v.trim();
+    });
+    return stack;
 }
