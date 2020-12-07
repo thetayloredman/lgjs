@@ -62,6 +62,6 @@ export default class LogFile {
     public write(data: LogEntry): void {
         const text = JSON.parse(fs.readFileSync(this.file, 'utf8'));
         text.push(data);
-        fs.appendFileSync(this.file, JSON.stringify(text));
+        fs.writeFileSync(this.file, JSON.stringify(text));
     }
 }

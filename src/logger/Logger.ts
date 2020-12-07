@@ -42,7 +42,7 @@ export default class Logger {
             type: 'default',
             stack: genStack(),
             time: Date.now(),
-            sender: { facility: this.facility, describer: describer }
+            sender: { facility: this.facility, describer: describer ?? null }
         });
     }
 
@@ -52,7 +52,7 @@ export default class Logger {
             type: 'debug',
             stack: genStack(),
             time: Date.now(),
-            sender: { facility: this.facility, describer: describer }
+            sender: { facility: this.facility, describer: describer ?? null }
         });
     }
 
@@ -62,7 +62,7 @@ export default class Logger {
             type: 'info',
             stack: genStack(),
             time: Date.now(),
-            sender: { facility: this.facility, describer: describer }
+            sender: { facility: this.facility, describer: describer ?? null }
         });
     }
 
@@ -72,7 +72,7 @@ export default class Logger {
             type: 'notice',
             stack: genStack(),
             time: Date.now(),
-            sender: { facility: this.facility, describer: describer }
+            sender: { facility: this.facility, describer: describer ?? null }
         });
     }
 
@@ -82,7 +82,7 @@ export default class Logger {
             type: 'warning',
             stack: genStack(),
             time: Date.now(),
-            sender: { facility: this.facility, describer: describer }
+            sender: { facility: this.facility, describer: describer ?? null }
         });
     }
 
@@ -92,7 +92,7 @@ export default class Logger {
             type: 'err',
             stack: genStack(),
             time: Date.now(),
-            sender: { facility: this.facility, describer: describer }
+            sender: { facility: this.facility, describer: describer ?? null }
         });
     }
 
@@ -102,17 +102,17 @@ export default class Logger {
             type: 'crit',
             stack: genStack(),
             time: Date.now(),
-            sender: { facility: this.facility, describer: describer }
+            sender: { facility: this.facility, describer: describer ?? null }
         });
     }
 
     public emerg(message: Serializable, describer?: string): void {
-         this.file.write({
+        this.file.write({
             message: serialize(message) ?? '',
             type: 'emerg',
             stack: genStack(),
             time: Date.now(),
-            sender: { facility: this.facility, describer: describer }
+            sender: { facility: this.facility, describer: describer ?? null }
         });
     }
 }

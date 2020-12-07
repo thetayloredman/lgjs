@@ -26,6 +26,6 @@ export default interface LogEntry {
     sender: {
         // sender info
         facility: string; // the item like "cored: "
-        describer: string | undefined; // the "(section)" after facility
+        describer: string | null; // the "(section)" after facility
     };
 }

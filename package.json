@@ -9,7 +9,10 @@
         "CI_prettier": "prettier . --list-different",
         "build": "tsc"
     },
-    "keywords": ["logger","nodejs"],
+    "keywords": [
+        "logger",
+        "nodejs"
+    ],
     "author": "BadBoyHaloCat",
     "license": "GPL-3.0",
     "dependencies": {

@@ -19,7 +19,9 @@ Then, make an instance of Logger:
 ```js
 //                 Name your logger!
 //                      vvvvv
-let logger = new Logger('main', {/* options */});
+let logger = new Logger('main', {
+    /* options */
+});
 ```
 
 To log, use the functions on `Logger`!
@@ -44,14 +46,7 @@ Data is formatted like this, in an array:
 {
     "message": "My error message",
     "type": "The type of log",
-    "stack": [
-        "the",
-        "stack",
-        "trace",
-        "to",
-        "the",
-        "log"
-    ],
+    "stack": ["the", "stack", "trace", "to", "the", "log"],
     "time": 0, // Date.now() timestamp of time
     "sender": {
         "facility": "Logger name",
