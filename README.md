@@ -50,3 +50,37 @@ Data is formatted like this, in an array:
     }
 }
 ```
+
+## Parsing log data
+
+Log data can be parsed by the `Parser` export.
+
+```js
+import { Parser } from 'lgjs';
+```
+
+Now, create a Parser:
+
+```js
+const parser = new Parser({
+    /* options */
+});
+```
+
+### Options:
+
+| Key          | Optional | Default  | Description                                                                |
+| ------------ | -------- | -------- | -------------------------------------------------------------------------- |
+| `dir`        | Yes      | `./logs` | The directory to read logs from, **avoid trailing slashes.**               |
+| `color`      | Yes      | `false`  | Color the provided output?                                                 |
+| `separator`  | Yes      | `''`     | Separate log files with this string, newlines will be added automatically. |
+| `verbose`    | Yes      | `false`  | `console.log()` verbose output while parsing?                              |
+| `showStacks` | Yes      | `false`  | Show stack traces to every log?                                            |
+
+### Parsing logs
+
+Once you've set up a Parser, you can parse logs like this:
+
+```js
+parser.parse();
+```

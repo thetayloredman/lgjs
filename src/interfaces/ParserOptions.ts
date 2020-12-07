@@ -16,8 +16,18 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import { inspect } from 'util';
+export interface ParserOptions {
+    dir?: string;
+    color?: boolean;
+    separator?: string;
+    verbose?: boolean;
+    showStacks?: boolean;
+}
 
-export default function serialize(data: any): string | undefined {
-    return typeof data === 'string' ? data : inspect(data, undefined, undefined, false);
+export interface SolidOptions {
+    dir: string;
+    color: boolean;
+    separator: string;
+    verbose: boolean;
+    showStacks: boolean;
 }

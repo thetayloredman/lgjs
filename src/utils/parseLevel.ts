@@ -16,8 +16,28 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import { inspect } from 'util';
+import Levels from '../interfaces/Levels';
 
-export default function serialize(data: any): string | undefined {
-    return typeof data === 'string' ? data : inspect(data, undefined, undefined, false);
+export default function parseLevel(d: Levels): string {
+    if (d === 'default') {
+        return 'Default';
+    } else if (d === 'info') {
+        return 'Info';
+    } else if (d === 'notice') {
+        return 'Notice';
+    } else if (d === 'alert') {
+        return 'Alert';
+    } else if (d === 'debug') {
+        return 'Debug';
+    } else if (d === 'warning') {
+        return 'Warning';
+    } else if (d === 'err') {
+        return 'Error';
+    } else if (d === 'crit') {
+        return 'Critical';
+    } else if (d === 'emerg') {
+        return 'Emergency';
+    } else {
+        return '';
+    }
 }

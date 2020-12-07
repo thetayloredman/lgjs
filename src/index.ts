@@ -18,6 +18,7 @@
 
 import Logger from './logger/Logger';
 import LogFile from './logger/LogFile';
+import Parser from './parser/Parser';
 
 export default Logger;
-export { Logger, LogFile };
+export { Logger, LogFile, Parser };
