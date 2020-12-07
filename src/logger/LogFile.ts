@@ -49,7 +49,7 @@ export default class LogFile {
      */
     private _init(): void {
         ensureDir(this.baseDir);
-        ensureFile(this.file, JSON.stringify([]))
+        ensureFile(this.file, JSON.stringify([]));
     }
 
     /**
@@ -60,7 +60,7 @@ export default class LogFile {
             const text = JSON.parse(await fsp.readFile(this.file, 'utf8'));
             text.push(data);
             const s = fs.createWriteStream(this.file);
-            await s.write(JSON.stringify(text))
+            await s.write(JSON.stringify(text));
             await s.close();
             resolve();
         });

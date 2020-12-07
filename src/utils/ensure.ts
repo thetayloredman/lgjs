@@ -20,7 +20,7 @@ import * as fs from 'fs';
 
 export function ensureDir(path: string): void {
     try {
-        fs.readdirSync(path)
+        fs.readdirSync(path);
     } catch (e) {
         if (e.code !== 'ENOENT') {
             throw new Error(e);
