@@ -19,6 +19,7 @@
 import type LogFileOptions from '../interfaces/LogFileOptions';
 import { ensureDir, ensureFile } from '../utils/ensure';
 import * as fs from 'fs';
+import LogEntry from '../interfaces/LogEntry';
 const fsp = fs.promises;
 
 /**
@@ -55,7 +56,7 @@ export default class LogFile {
     /**
      * Write to the file
      */
-    public async write(data: { [key: string]: any }): Promise<void> {
+    public async write(data: LogEntry): Promise<void> {
         return new Promise(async (resolve, reject) => {
             const text = JSON.parse(await fsp.readFile(this.file, 'utf8'));
             text.push(data);

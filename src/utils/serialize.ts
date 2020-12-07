@@ -16,6 +16,14 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-type Levels = 'default' | 'debug' | 'info' | 'notice' | 'warning' | 'err' | 'crit' | 'alert' | 'emerg';
+import Serializable from "../interfaces/Serializable";
 
-export default Levels;
+export default function serialize(data: Serializable): string | undefined {
+    if (typeof data === 'string') {
+        return data;
+    } else if (typeof data === 'number') {
+        return String(data);
+    } else {
+        return;
+    }
+}

@@ -16,4 +16,8 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-export default interface LoggerOptions {}
+import LogFileOptions from './LogFileOptions';
+
+export default interface LoggerOptions {
+    file: LogFileOptions
+}

@@ -17,11 +17,149 @@
  */
 
 import type LoggerOptions from '../interfaces/LoggerOptions';
+import LogFile from './LogFile';
+import Serializable from '../interfaces/Serializable';
+import serialize from '../utils/serialize';
+import genStack from '../utils/genStack';
 
 /**
  * Class to represent logging
  * @class
  */
 export default class Logger {
-    public constructor(options: LoggerOptions) {}
+    public constructor(facility: string, options: LoggerOptions) {
+        this.facility = facility;
+        this.file = new LogFile(options.file ?? undefined);
+    }
+
+    public facility: string;
+    public file: LogFile;
+
+    public async log(message: Serializable, describer?: string): Promise<void> {
+        return new Promise(async (resolve) => {
+            await this.file.write({
+                message: serialize(message) ?? '',
+                type: 'default',
+                stack: genStack(),
+                time: Date.now(),
+                sender: {
+                    facility: this.facility,
+                    describer: describer
+                }
+            });
+            resolve();
+        });
+    }
+
+    public async debug(message: Serializable, describer?: string): Promise<void> {
+        return new Promise(async (resolve) => {
+            await this.file.write({
+                message: serialize(message) ?? '',
+                type: 'debug',
+                stack: genStack(),
+                time: Date.now(),
+                sender: {
+                    facility: this.facility,
+                    describer: describer
+                }
+            });
+            resolve();
+        });
+    }
+
+    public async info(message: Serializable, describer?: string): Promise<void> {
+        return new Promise(async (resolve) => {
+            await this.file.write({
+                message: serialize(message) ?? '',
+                type: 'info',
+                stack: genStack(),
+                time: Date.now(),
+                sender: {
+                    facility: this.facility,
+                    describer: describer
+                }
+            });
+            resolve();
+        });
+    }
+
+    public async notice(message: Serializable, describer?: string): Promise<void> {
+        return new Promise(async (resolve) => {
+            await this.file.write({
+                message: serialize(message) ?? '',
+                type: 'notice',
+                stack: genStack(),
+                time: Date.now(),
+                sender: {
+                    facility: this.facility,
+                    describer: describer
+                }
+            });
+            resolve();
+        });
+    }
+
+    public async warn(message: Serializable, describer?: string): Promise<void> {
+        return new Promise(async (resolve) => {
+            await this.file.write({
+                message: serialize(message) ?? '',
+                type: 'warning',
+                stack: genStack(),
+                time: Date.now(),
+                sender: {
+                    facility: this.facility,
+                    describer: describer
+                }
+            });
+            resolve();
+        });
+    }
+
+    public async err(message: Serializable, describer?: string): Promise<void> {
+        return new Promise(async (resolve) => {
+            await this.file.write({
+                message: serialize(message) ?? '',
+                type: 'err',
+                stack: genStack(),
+                time: Date.now(),
+                sender: {
+                    facility: this.facility,
+                    describer: describer
+                }
+            });
+            resolve();
+        });
+    }
+
+    public async crit(message: Serializable, describer?: string): Promise<void> {
+        return new Promise(async (resolve) => {
+            await this.file.write({
+                message: serialize(message) ?? '',
+                type: 'crit',
+                stack: genStack(),
+                time: Date.now(),
+                sender: {
+                    facility: this.facility,
+                    describer: describer
+                }
+            });
+            resolve();
+        });
+    }
+
+    public async emerg(message: Serializable, describer?: string): Promise<void> {
+        return new Promise(async (resolve) => {
+            await this.file.write({
+                message: serialize(message) ?? '',
+                type: 'emerg',
+                stack: genStack(),
+                time: Date.now(),
+                sender: {
+                    facility: this.facility,
+                    describer: describer
+                }
+            });
+            resolve();
+        });
+    }
 }

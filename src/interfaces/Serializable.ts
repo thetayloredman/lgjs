@@ -16,6 +16,6 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-type Levels = 'default' | 'debug' | 'info' | 'notice' | 'warning' | 'err' | 'crit' | 'alert' | 'emerg';
+type Serializable = string | number;
 
-export default Levels;
+export default Serializable;

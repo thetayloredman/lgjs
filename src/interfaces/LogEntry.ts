@@ -26,7 +26,6 @@ export default interface LogEntry {
     sender: {
         // sender info
         facility: string; // the item like "cored: "
-        section: string; // the "(section)" after facility
-        bundle: { id: string; sec: string }; // the [id:sec]
+        describer: string | undefined; // the "(section)" after facility
     };
 }
