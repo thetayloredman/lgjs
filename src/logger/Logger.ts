@@ -42,10 +42,7 @@ export default class Logger {
                 type: 'default',
                 stack: genStack(),
                 time: Date.now(),
-                sender: {
-                    facility: this.facility,
-                    describer: describer
-                }
+                sender: { facility: this.facility, describer: describer }
             });
             resolve();
         });
@@ -58,10 +55,7 @@ export default class Logger {
                 type: 'debug',
                 stack: genStack(),
                 time: Date.now(),
-                sender: {
-                    facility: this.facility,
-                    describer: describer
-                }
+                sender: { facility: this.facility, describer: describer }
             });
             resolve();
         });
@@ -74,10 +68,7 @@ export default class Logger {
                 type: 'info',
                 stack: genStack(),
                 time: Date.now(),
-                sender: {
-                    facility: this.facility,
-                    describer: describer
-                }
+                sender: { facility: this.facility, describer: describer }
             });
             resolve();
         });
@@ -90,10 +81,7 @@ export default class Logger {
                 type: 'notice',
                 stack: genStack(),
                 time: Date.now(),
-                sender: {
-                    facility: this.facility,
-                    describer: describer
-                }
+                sender: { facility: this.facility, describer: describer }
             });
             resolve();
         });
@@ -106,10 +94,7 @@ export default class Logger {
                 type: 'warning',
                 stack: genStack(),
                 time: Date.now(),
-                sender: {
-                    facility: this.facility,
-                    describer: describer
-                }
+                sender: { facility: this.facility, describer: describer }
             });
             resolve();
         });
@@ -122,10 +107,7 @@ export default class Logger {
                 type: 'err',
                 stack: genStack(),
                 time: Date.now(),
-                sender: {
-                    facility: this.facility,
-                    describer: describer
-                }
+                sender: { facility: this.facility, describer: describer }
             });
             resolve();
         });
@@ -138,10 +120,7 @@ export default class Logger {
                 type: 'crit',
                 stack: genStack(),
                 time: Date.now(),
-                sender: {
-                    facility: this.facility,
-                    describer: describer
-                }
+                sender: { facility: this.facility, describer: describer }
             });
             resolve();
         });
@@ -154,10 +133,7 @@ export default class Logger {
                 type: 'emerg',
                 stack: genStack(),
                 time: Date.now(),
-                sender: {
-                    facility: this.facility,
-                    describer: describer
-                }
+                sender: { facility: this.facility, describer: describer }
             });
             resolve();
         });
