@@ -17,7 +17,9 @@
  */
 
 import type LogFileOptions from '../interfaces/LogFileOptions';
-import ensureDir from '../utils/ensureDir';
+import { ensureDir, ensureFile } from '../utils/ensure';
+import * as fs from 'fs';
+const fsp = fs.promises;
 
 /**
  * Class to describe I/O with the log files
@@ -29,14 +31,15 @@ export default class LogFile {
      * @param {LogFileOptions} options Options to pass
      */
     public constructor(options: LogFileOptions) {
+        if (!options) options = {};
         this.baseDir = options.logsDir ?? './logs';
         this.time = Date.now();
-        this.dir = `${this.baseDir}/${this.time}`;
+        this.file = `${this.baseDir}/${this.time}.json`;
         this._init();
     }
 
     public baseDir: string;
-    public dir: string;
+    public file: string;
     public time: number;
 
     /**
@@ -45,10 +48,21 @@ export default class LogFile {
      * @function
      */
     private _init(): void {
-        ensureDir(this.baseDir).then(() => {
-            ensureDir(this.dir).then(() => {
-                // TODO: do things
-            });
+        ensureDir(this.baseDir);
+        ensureFile(this.file, JSON.stringify([]))
+    }
+
+    /**
+     * Write to the file
+     */
+    public async write(data: { [key: string]: any }): Promise<void> {
+        return new Promise(async (resolve, reject) => {
+            const text = JSON.parse(await fsp.readFile(this.file, 'utf8'));
+            text.push(data);
+            const s = fs.createWriteStream(this.file);
+            await s.write(JSON.stringify(text))
+            await s.close();
+            resolve();
         });
     }
 }

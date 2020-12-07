@@ -16,26 +16,28 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import * as fs from 'fs/promises';
+import * as fs from 'fs';
 
-export default function ensureDir(path: string): Promise<boolean> {
-    return new Promise((resolve, reject) => {
-        fs.readdir(path)
-            .then((files) => {
-                resolve(false);
-            })
-            .catch((e) => {
-                if (e.code !== 'ENOENT') {
-                    throw new Error(e);
-                } else {
-                    fs.mkdir(path)
-                        .then(() => {
-                            resolve(true);
-                        })
-                        .catch((e) => {
-                            throw new Error(e);
-                        });
-                }
-            });
-    });
+export function ensureDir(path: string): void {
+    try {
+        fs.readdirSync(path)
+    } catch (e) {
+        if (e.code !== 'ENOENT') {
+            throw new Error(e);
+        } else {
+            fs.mkdirSync(path);
+        }
+    }
+}
+
+export function ensureFile(path: string, defaultContent: string = ''): void {
+    try {
+        fs.readFileSync(path);
+    } catch (e) {
+        if (e.code !== 'ENOENT') {
+            throw new Error(e);
+        } else {
+            fs.writeFileSync(path, defaultContent);
+        }
+    }
 }
