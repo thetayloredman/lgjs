@@ -18,7 +18,6 @@
 
 import type LoggerOptions from '../interfaces/LoggerOptions';
 import LogFile from './LogFile';
-import Serializable from '../interfaces/Serializable';
 import serialize from '../utils/serialize';
 import genStack from '../utils/genStack';
 
@@ -36,7 +35,7 @@ export default class Logger {
     public facility: string;
     public file: LogFile;
 
-    public log(message: Serializable, describer?: string): void {
+    public log(message: any, describer?: string): void {
         this.file.write({
             message: serialize(message) ?? '',
             type: 'default',
@@ -46,7 +45,7 @@ export default class Logger {
         });
     }
 
-    public debug(message: Serializable, describer?: string): void {
+    public debug(message: any, describer?: string): void {
         this.file.write({
             message: serialize(message) ?? '',
             type: 'debug',
@@ -56,7 +55,7 @@ export default class Logger {
         });
     }
 
-    public info(message: Serializable, describer?: string): void {
+    public info(message: any, describer?: string): void {
         this.file.write({
             message: serialize(message) ?? '',
             type: 'info',
@@ -66,7 +65,7 @@ export default class Logger {
         });
     }
 
-    public notice(message: Serializable, describer?: string): void {
+    public notice(message: any, describer?: string): void {
         this.file.write({
             message: serialize(message) ?? '',
             type: 'notice',
@@ -76,7 +75,7 @@ export default class Logger {
         });
     }
 
-    public warn(message: Serializable, describer?: string): void {
+    public warn(message: any, describer?: string): void {
         this.file.write({
             message: serialize(message) ?? '',
             type: 'warning',
@@ -86,7 +85,7 @@ export default class Logger {
         });
     }
 
-    public err(message: Serializable, describer?: string): void {
+    public err(message: any, describer?: string): void {
         this.file.write({
             message: serialize(message) ?? '',
             type: 'err',
@@ -96,7 +95,7 @@ export default class Logger {
         });
     }
 
-    public crit(message: Serializable, describer?: string): void {
+    public crit(message: any, describer?: string): void {
         this.file.write({
             message: serialize(message) ?? '',
             type: 'crit',
@@ -106,7 +105,7 @@ export default class Logger {
         });
     }
 
-    public emerg(message: Serializable, describer?: string): void {
+    public emerg(message: any, describer?: string): void {
         this.file.write({
             message: serialize(message) ?? '',
             type: 'emerg',

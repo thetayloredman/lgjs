@@ -16,14 +16,8 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import Serializable from '../interfaces/Serializable';
+import { inspect } from 'util';
 
-export default function serialize(data: Serializable): string | undefined {
-    if (typeof data === 'string') {
-        return data;
-    } else if (typeof data === 'number') {
-        return String(data);
-    } else {
-        return;
-    }
+export default function serialize(data: any): string | undefined {
+    return inspect(data, undefined, undefined, false);
 }
