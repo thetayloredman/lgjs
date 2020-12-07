@@ -36,107 +36,83 @@ export default class Logger {
     public facility: string;
     public file: LogFile;
 
-    public async log(message: Serializable, describer?: string): Promise<void> {
-        return new Promise(async (resolve) => {
-            await this.file.write({
-                message: serialize(message) ?? '',
-                type: 'default',
-                stack: genStack(),
-                time: Date.now(),
-                sender: { facility: this.facility, describer: describer }
-            });
-            resolve();
+    public log(message: Serializable, describer?: string): void {
+        this.file.write({
+            message: serialize(message) ?? '',
+            type: 'default',
+            stack: genStack(),
+            time: Date.now(),
+            sender: { facility: this.facility, describer: describer }
         });
     }
 
-    public async debug(message: Serializable, describer?: string): Promise<void> {
-        return new Promise(async (resolve) => {
-            await this.file.write({
-                message: serialize(message) ?? '',
-                type: 'debug',
-                stack: genStack(),
-                time: Date.now(),
-                sender: { facility: this.facility, describer: describer }
-            });
-            resolve();
+    public debug(message: Serializable, describer?: string): void {
+        this.file.write({
+            message: serialize(message) ?? '',
+            type: 'debug',
+            stack: genStack(),
+            time: Date.now(),
+            sender: { facility: this.facility, describer: describer }
         });
     }
 
-    public async info(message: Serializable, describer?: string): Promise<void> {
-        return new Promise(async (resolve) => {
-            await this.file.write({
-                message: serialize(message) ?? '',
-                type: 'info',
-                stack: genStack(),
-                time: Date.now(),
-                sender: { facility: this.facility, describer: describer }
-            });
-            resolve();
+    public info(message: Serializable, describer?: string): void {
+        this.file.write({
+            message: serialize(message) ?? '',
+            type: 'info',
+            stack: genStack(),
+            time: Date.now(),
+            sender: { facility: this.facility, describer: describer }
         });
     }
 
-    public async notice(message: Serializable, describer?: string): Promise<void> {
-        return new Promise(async (resolve) => {
-            await this.file.write({
-                message: serialize(message) ?? '',
-                type: 'notice',
-                stack: genStack(),
-                time: Date.now(),
-                sender: { facility: this.facility, describer: describer }
-            });
-            resolve();
+    public notice(message: Serializable, describer?: string): void {
+        this.file.write({
+            message: serialize(message) ?? '',
+            type: 'notice',
+            stack: genStack(),
+            time: Date.now(),
+            sender: { facility: this.facility, describer: describer }
         });
     }
 
-    public async warn(message: Serializable, describer?: string): Promise<void> {
-        return new Promise(async (resolve) => {
-            await this.file.write({
-                message: serialize(message) ?? '',
-                type: 'warning',
-                stack: genStack(),
-                time: Date.now(),
-                sender: { facility: this.facility, describer: describer }
-            });
-            resolve();
+    public warn(message: Serializable, describer?: string): void {
+        this.file.write({
+            message: serialize(message) ?? '',
+            type: 'warning',
+            stack: genStack(),
+            time: Date.now(),
+            sender: { facility: this.facility, describer: describer }
         });
     }
 
-    public async err(message: Serializable, describer?: string): Promise<void> {
-        return new Promise(async (resolve) => {
-            await this.file.write({
-                message: serialize(message) ?? '',
-                type: 'err',
-                stack: genStack(),
-                time: Date.now(),
-                sender: { facility: this.facility, describer: describer }
-            });
-            resolve();
+    public err(message: Serializable, describer?: string): void {
+        this.file.write({
+            message: serialize(message) ?? '',
+            type: 'err',
+            stack: genStack(),
+            time: Date.now(),
+            sender: { facility: this.facility, describer: describer }
         });
     }
 
-    public async crit(message: Serializable, describer?: string): Promise<void> {
-        return new Promise(async (resolve) => {
-            await this.file.write({
-                message: serialize(message) ?? '',
-                type: 'crit',
-                stack: genStack(),
-                time: Date.now(),
-                sender: { facility: this.facility, describer: describer }
-            });
-            resolve();
+    public crit(message: Serializable, describer?: string): void {
+        this.file.write({
+            message: serialize(message) ?? '',
+            type: 'crit',
+            stack: genStack(),
+            time: Date.now(),
+            sender: { facility: this.facility, describer: describer }
         });
     }
 
-    public async emerg(message: Serializable, describer?: string): Promise<void> {
-        return new Promise(async (resolve) => {
-            await this.file.write({
-                message: serialize(message) ?? '',
-                type: 'emerg',
-                stack: genStack(),
-                time: Date.now(),
-                sender: { facility: this.facility, describer: describer }
-            });
-            resolve();
+    public emerg(message: Serializable, describer?: string): void {
+         this.file.write({
+            message: serialize(message) ?? '',
+            type: 'emerg',
+            stack: genStack(),
+            time: Date.now(),
+            sender: { facility: this.facility, describer: describer }
         });
     }
 }

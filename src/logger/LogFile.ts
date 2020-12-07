@@ -59,14 +59,9 @@ export default class LogFile {
     /**
      * Write to the file
      */
-    public async write(data: LogEntry): Promise<void> {
-        return new Promise(async (resolve, reject) => {
-            const text = JSON.parse(await fsp.readFile(this.file, 'utf8'));
-            text.push(data);
-            const s = fs.createWriteStream(this.file);
-            await s.write(JSON.stringify(text));
-            s.close();
-            resolve();
-        });
+    public write(data: LogEntry): void {
+        const text = JSON.parse(fs.readFileSync(this.file, 'utf8'));
+        text.push(data);
+        fs.appendFileSync(this.file, JSON.stringify(text));
     }
 }
