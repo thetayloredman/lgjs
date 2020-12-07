@@ -27,14 +27,10 @@ let logger = new Logger('main', {
 To log, use the functions on `Logger`!
 
 ```js
-//                                  (Optional) location
+//                            (Optional) location
 //                                  vvv
-await logger.info('Hello, World!', 'HelloWorldHandler');
+logger.info('Hello, World!', 'HelloWorldHandler');
 ```
-
-### Note:
-
-`await` is needed to prevent data corruption.
 
 ## How do I read the raw log data?
 
