@@ -16,7 +16,7 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import Serializable from "../interfaces/Serializable";
+import Serializable from '../interfaces/Serializable';
 
 export default function serialize(data: Serializable): string | undefined {
     if (typeof data === 'string') {
