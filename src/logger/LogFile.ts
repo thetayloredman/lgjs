@@ -31,10 +31,13 @@ export default class LogFile {
      * Creates a new LogFile
      * @param {LogFileOptions} options Options to pass
      */
-    public constructor(options: LogFileOptions) {
+    public constructor(options?: LogFileOptions) {
         if (!options) options = {};
         this.baseDir = options.logsDir ?? './logs';
-        this.time = Date.now();
+        // @ts-ignore
+        global.__lgjs__initDate__ ??= Date.now();
+        // @ts-ignore
+        this.time = global.__lgjs__initDate__;
         this.file = `${this.baseDir}/${this.time}.json`;
         this._init();
     }
@@ -62,7 +65,7 @@ export default class LogFile {
             text.push(data);
             const s = fs.createWriteStream(this.file);
             await s.write(JSON.stringify(text));
-            await s.close();
+            s.close();
             resolve();
         });
     }

@@ -16,5 +16,8 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-export * from './logger/Logger';
-export * from './logger/LogFile';
+import Logger from './logger/Logger';
+import LogFile from './logger/LogFile';
+
+export default Logger;
+export { Logger, LogFile };

@@ -27,9 +27,10 @@ import genStack from '../utils/genStack';
  * @class
  */
 export default class Logger {
-    public constructor(facility: string, options: LoggerOptions) {
+    public constructor(facility: string, options?: LoggerOptions) {
+        options ??= {};
         this.facility = facility;
-        this.file = new LogFile(options.file ?? undefined);
+        this.file = new LogFile(options.file);
     }
 
     public facility: string;
