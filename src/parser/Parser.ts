@@ -22,7 +22,16 @@ import * as fs from 'fs';
 import LogEntry from '../interfaces/LogEntry';
 import parseLevel from '../utils/parseLevel';
 
+/**
+ * Parses log data for display.
+ * @class
+ * @property {SolidOptions} options The options parsed
+ */
 export default class Parser {
+    /**
+     * Creates a new Parser.
+     * @param {ParserOptions} options The options passes
+     */
     public constructor(options?: ParserOptions) {
         options ??= {};
         options.dir ??= './logs';
@@ -35,6 +44,11 @@ export default class Parser {
 
     public options: SolidOptions;
 
+    /**
+     * Parses the log input
+     * @function
+     * @returns {string} The parsed log
+     */
     public parse(): string {
         const outArr: string[] = [];
         this._log('Starting...');
@@ -69,6 +83,12 @@ export default class Parser {
         return outArr.join(sep);
     }
 
+    /**
+     * Sends an internal log message
+     * @function
+     * @private
+     * @param {*} data The log data
+     */
     private _log(...data: any[]) {
         if (this.options.verbose) {
             console.log(...data);

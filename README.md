@@ -84,3 +84,7 @@ Once you've set up a Parser, you can parse logs like this:
 ```js
 parser.parse();
 ```
+
+## Docs
+
+See [DOCS.md](DOCS.md) for the documentation!

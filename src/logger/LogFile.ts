@@ -25,6 +25,9 @@ const fsp = fs.promises;
 /**
  * Class to describe I/O with the log files
  * @class
+ * @property {string} baseDir The base directory
+ * @property {string} file The file
+ * @property {number} time The time of creation
  */
 export default class LogFile {
     /**
@@ -58,6 +61,7 @@ export default class LogFile {
 
     /**
      * Write to the file
+     * @param {LogEntry} data The data to write
      */
     public write(data: LogEntry): void {
         const text = JSON.parse(fs.readFileSync(this.file, 'utf8'));

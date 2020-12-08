@@ -24,8 +24,15 @@ import genStack from '../utils/genStack';
 /**
  * Class to represent logging
  * @class
+ * @property {string} facility The facility
+ * @property {LogFile} file The LogFile written to
  */
 export default class Logger {
+    /**
+     * Creates a new Logger.
+     * @param {string} facility The facility (location) of the logger
+     * @param {LoggerOptions} [options] The options to pass the logger
+     */
     public constructor(facility: string, options?: LoggerOptions) {
         options ??= {};
         this.facility = facility;
@@ -35,6 +42,11 @@ export default class Logger {
     public facility: string;
     public file: LogFile;
 
+    /**
+     * Sends a normal log message to the file.
+     * @param {*} message The message to send
+     * @param {string} describer The description of where the log is happening.
+     */
     public log(message: any, describer?: string): void {
         this.file.write({
             message: serialize(message) ?? '',
