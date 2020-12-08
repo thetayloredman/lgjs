@@ -18,7 +18,6 @@
 
 export interface ParserOptions {
     dir?: string;
-    color?: boolean;
     separator?: string;
     verbose?: boolean;
     showStacks?: boolean;
@@ -26,7 +25,6 @@ export interface ParserOptions {
 
 export interface SolidOptions {
     dir: string;
-    color: boolean;
     separator: string;
     verbose: boolean;
     showStacks: boolean;

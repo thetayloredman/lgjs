@@ -35,7 +35,6 @@ export default class Parser {
     public constructor(options?: ParserOptions) {
         options ??= {};
         options.dir ??= './logs';
-        options.color ??= false;
         options.separator ??= '';
         options.verbose ??= false;
         options.showStacks ??= false;

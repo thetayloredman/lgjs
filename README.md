@@ -72,7 +72,6 @@ const parser = new Parser({
 | Key          | Optional | Default  | Description                                                                |
 | ------------ | -------- | -------- | -------------------------------------------------------------------------- |
 | `dir`        | Yes      | `./logs` | The directory to read logs from, **avoid trailing slashes.**               |
-| `color`      | Yes      | `false`  | Color the provided output?                                                 |
 | `separator`  | Yes      | `''`     | Separate log files with this string, newlines will be added automatically. |
 | `verbose`    | Yes      | `false`  | `console.log()` verbose output while parsing?                              |
 | `showStacks` | Yes      | `false`  | Show stack traces to every log?                                            |
