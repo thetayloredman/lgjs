@@ -65,21 +65,30 @@ export default class Parser {
             this._log('Parsing entries...');
             for (let entry of data) {
                 this._log('Parsing entry...');
-                appendEntry(
-                    `[${new Date(entry.time).toLocaleString()}]  ${parseLevel(entry.type)}  ${entry.sender.facility}:  ${
-                        entry.sender.describer !== null ? '(' + entry.sender.describer + ')' : ''
-                    }  ${entry.message}`
-                );
-                if (this.options.showStacks) {
-                    for (let i of entry.stack) {
-                        appendEntry(`    ${i}`);
-                    }
-                }
+                appendEntry(this.parseEntry(entry, this.options.showStacks));
             }
         }
         let sep = this.options.separator === '' ? '\n' : `\n${this.options.separator}\n`;
 
         return outArr.join(sep);
+    }
+
+    /**
+     * Parse one entry
+     * @param d The log entry to parse
+     * @param stack Show stacks?
+     */
+    public parseEntry(d: LogEntry, stack: boolean = false): string {
+        let out: string = `[${new Date(d.time).toLocaleString()}]  ${parseLevel(d.type)}  ${d.sender.facility}:  ${
+            d.sender.describer !== null ? '(' + d.sender.describer + ')' : ''
+        }  ${d.message}`;
+        if (stack) {
+            for (let i of d.stack) {
+                out += `\n    ${i}`;
+            }
+        }
+
+        return out;
     }
 
     /**

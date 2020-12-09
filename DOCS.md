@@ -1,5 +1,3 @@
-# API Documentation
-
 ## Classes
 
 <dl>
@@ -134,7 +132,7 @@ Sends an informational log message to the file.
 
 ### logger.notice(message, describer)
 
-Sends a notice log message to the file.
+Sends a notice message to the file.
 
 **Kind**: instance method of [<code>Logger</code>](#Logger)
 
@@ -160,7 +158,7 @@ Sends a warning log message to the file.
 
 ### logger.err(message, describer)
 
-Sends a error log message to the file.
+Sends an error log message to the file.
 
 **Kind**: instance method of [<code>Logger</code>](#Logger)
 
@@ -211,6 +209,7 @@ Parses log data for display.
 -   [Parser](#Parser)
     -   [new Parser(options)](#new_Parser_new)
     -   [.parse()](#Parser+parse) ⇒ <code>string</code>
+    -   [.parseEntry(d, stack)](#Parser+parseEntry)
 
 <a name="new_Parser_new"></a>
 
@@ -229,4 +228,16 @@ Creates a new Parser.
 Parses the log input
 
 **Kind**: instance method of [<code>Parser</code>](#Parser)  
-**Returns**: <code>string</code> - The parsed log
+**Returns**: <code>string</code> - The parsed log  
+<a name="Parser+parseEntry"></a>
+
+### parser.parseEntry(d, stack)
+
+Parse one entry
+
+**Kind**: instance method of [<code>Parser</code>](#Parser)
+
+| Param | Default            | Description            |
+| ----- | ------------------ | ---------------------- |
+| d     |                    | The log entry to parse |
+| stack | <code>false</code> | Show stacks?           |

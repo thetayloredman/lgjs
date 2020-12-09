@@ -20,4 +20,5 @@ import LogFileOptions from './LogFileOptions';
 
 export default interface LoggerOptions {
     file?: LogFileOptions;
+    log?: boolean;
 }
