@@ -16,6 +16,9 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
+/**
+ * Options for a LogFile
+ */
 export default interface LogFileOptions {
     logsDir?: string;
 }

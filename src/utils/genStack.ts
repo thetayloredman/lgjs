@@ -16,6 +16,10 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
+/**
+ * Generates a stack trace
+ * @returns The stack teace
+ */
 export default function genStack(): string[] {
     const tempErr = new Error();
     const stack = (tempErr.stack ?? '').split('\n');

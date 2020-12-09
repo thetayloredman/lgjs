@@ -18,6 +18,9 @@
 
 import LogFileOptions from './LogFileOptions';
 
+/**
+ * Options for a Logger
+ */
 export default interface LoggerOptions {
     file?: LogFileOptions;
     log?: boolean;

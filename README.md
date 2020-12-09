@@ -84,6 +84,4 @@ Once you've set up a Parser, you can parse logs like this:
 parser.parse();
 ```
 
-## Docs
-
-See [DOCS.md](DOCS.md) for the documentation!
+## Check out our [docs](https://thetayloredman.github.io/lgjs/)!

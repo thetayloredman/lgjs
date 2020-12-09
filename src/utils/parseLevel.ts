@@ -18,6 +18,10 @@
 
 import Levels from '../interfaces/Levels';
 
+/**
+ * Parses a level for logging
+ * @param d The level
+ */
 export default function parseLevel(d: Levels): string {
     if (d === 'default') {
         return 'Default';

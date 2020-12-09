@@ -25,12 +25,11 @@ import parseLevel from '../utils/parseLevel';
 /**
  * Parses log data for display.
  * @class
- * @property {SolidOptions} options The options parsed
  */
 export default class Parser {
     /**
      * Creates a new Parser.
-     * @param {ParserOptions} options The options passes
+     * @param options The options passes
      */
     public constructor(options?: ParserOptions) {
         options ??= {};
@@ -41,12 +40,15 @@ export default class Parser {
         this.options = options as SolidOptions;
     }
 
+    /**
+     * The parsed options
+     */
     public options: SolidOptions;
 
     /**
      * Parses the log input
      * @function
-     * @returns {string} The parsed log
+     * @returns The parsed log
      */
     public parse(): string {
         const outArr: string[] = [];
@@ -95,7 +97,7 @@ export default class Parser {
      * Sends an internal log message
      * @function
      * @private
-     * @param {*} data The log data
+     * @param data The log data
      */
     private _log(...data: any[]) {
         if (this.options.verbose) {

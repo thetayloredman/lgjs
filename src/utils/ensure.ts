@@ -16,8 +16,13 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
+/** @hidden */
 import * as fs from 'fs';
 
+/**
+ * Ensures that a folder exists
+ * @param path The path to ensure
+ */
 export function ensureDir(path: string): void {
     try {
         fs.readdirSync(path);
@@ -30,6 +35,11 @@ export function ensureDir(path: string): void {
     }
 }
 
+/**
+ * Ensures that a file exists
+ * @param path The path to ensure
+ * @param defaultContent The content to put in
+ */
 export function ensureFile(path: string, defaultContent: string = ''): void {
     try {
         fs.readFileSync(path);

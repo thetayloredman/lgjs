@@ -16,6 +16,9 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
+/**
+ * Options for a Parser
+ */
 export interface ParserOptions {
     dir?: string;
     separator?: string;
@@ -23,6 +26,9 @@ export interface ParserOptions {
     showStacks?: boolean;
 }
 
+/**
+ * Solid options for a Parser
+ */
 export interface SolidOptions {
     dir: string;
     separator: string;

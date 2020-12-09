@@ -20,19 +20,15 @@ import type LogFileOptions from '../interfaces/LogFileOptions';
 import { ensureDir, ensureFile } from '../utils/ensure';
 import * as fs from 'fs';
 import LogEntry from '../interfaces/LogEntry';
-const fsp = fs.promises;
 
 /**
  * Class to describe I/O with the log files
  * @class
- * @property {string} baseDir The base directory
- * @property {string} file The file
- * @property {number} time The time of creation
  */
 export default class LogFile {
     /**
      * Creates a new LogFile
-     * @param {LogFileOptions} options Options to pass
+     * @param options Options to pass
      */
     public constructor(options?: LogFileOptions) {
         if (!options) options = {};
@@ -45,8 +41,17 @@ export default class LogFile {
         this._init();
     }
 
+    /**
+     * The base directory for the logs
+     */
     public baseDir: string;
+    /**
+     * The log file
+     */
     public file: string;
+    /**
+     * The time the LogFile was initialized
+     */
     public time: number;
 
     /**
@@ -61,7 +66,7 @@ export default class LogFile {
 
     /**
      * Write to the file
-     * @param {LogEntry} data The data to write
+     * @param data The data to write
      */
     public write(data: LogEntry): void {
         const text = JSON.parse(fs.readFileSync(this.file, 'utf8'));

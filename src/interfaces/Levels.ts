@@ -16,6 +16,9 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
+/**
+ * Represents all valid logging levels
+ */
 type Levels = 'default' | 'debug' | 'info' | 'notice' | 'warning' | 'err' | 'crit' | 'alert' | 'emerg';
 
 export default Levels;

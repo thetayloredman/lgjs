@@ -25,14 +25,12 @@ import Parser from '../parser/Parser';
 /**
  * Class to represent logging
  * @class
- * @property {string} facility The facility
- * @property {LogFile} file The LogFile written to
  */
 export default class Logger {
     /**
      * Creates a new Logger.
-     * @param {string} facility The facility (location) of the logger
-     * @param {LoggerOptions} [options] The options to pass the logger
+     * @param facility The facility (location) of the logger
+     * @param options The options to pass the logger
      */
     public constructor(facility: string, options?: LoggerOptions) {
         options ??= {};
@@ -41,14 +39,23 @@ export default class Logger {
         this.doLog = options.log ?? false;
     }
 
+    /**
+     * The facility of the logger
+     */
     public facility: string;
+    /**
+     * The {@link LogFile} that is used for logging
+     */
     public file: LogFile;
+    /**
+     * Do we log to the console?
+     */
     public doLog: boolean;
 
     /**
      * Sends a normal log message to the file.
-     * @param {*} message The message to send
-     * @param {string} describer The description of where the log is happening.
+     * @param message The message to send
+     * @param describer The description of where the log is happening.
      */
     public log(message: any, describer?: string): void {
         this.file.write({
@@ -74,8 +81,8 @@ export default class Logger {
 
     /**
      * Sends a debugging log message to the file.
-     * @param {*} message The message to send
-     * @param {string} describer The description of where the log is happening.
+     * @param message The message to send
+     * @param describer The description of where the log is happening.
      */
     public debug(message: any, describer?: string): void {
         this.file.write({
@@ -101,8 +108,8 @@ export default class Logger {
 
     /**
      * Sends an informational log message to the file.
-     * @param {*} message The message to send
-     * @param {string} describer The description of where the log is happening.
+     * @param message The message to send
+     * @param describer The description of where the log is happening.
      */
     public info(message: any, describer?: string): void {
         this.file.write({
@@ -128,8 +135,8 @@ export default class Logger {
 
     /**
      * Sends a notice message to the file.
-     * @param {*} message The message to send
-     * @param {string} describer The description of where the log is happening.
+     * @param message The message to send
+     * @param describer The description of where the log is happening.
      */
     public notice(message: any, describer?: string): void {
         this.file.write({
@@ -155,8 +162,8 @@ export default class Logger {
 
     /**
      * Sends a warning log message to the file.
-     * @param {*} message The message to send
-     * @param {string} describer The description of where the log is happening.
+     * @param message The message to send
+     * @param describer The description of where the log is happening.
      */
     public warn(message: any, describer?: string): void {
         this.file.write({
@@ -182,8 +189,8 @@ export default class Logger {
 
     /**
      * Sends an error log message to the file.
-     * @param {*} message The message to send
-     * @param {string} describer The description of where the log is happening.
+     * @param message The message to send
+     * @param describer The description of where the log is happening.
      */
     public err(message: any, describer?: string): void {
         this.file.write({
@@ -209,8 +216,8 @@ export default class Logger {
 
     /**
      * Sends a critical log message to the file.
-     * @param {*} message The message to send
-     * @param {string} describer The description of where the log is happening.
+     * @param message The message to send
+     * @param describer The description of where the log is happening.
      */
     public crit(message: any, describer?: string): void {
         this.file.write({
@@ -236,8 +243,8 @@ export default class Logger {
 
     /**
      * Sends an emergency (fatal) log message to the file.
-     * @param {*} message The message to send
-     * @param {string} describer The description of where the log is happening.
+     * @param message The message to send
+     * @param describer The description of where the log is happening.
      */
     public emerg(message: any, describer?: string): void {
         this.file.write({

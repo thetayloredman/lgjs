@@ -18,6 +18,9 @@
 
 import type Levels from './Levels';
 
+/**
+ * Represents a log's entry
+ */
 export default interface LogEntry {
     message: string; // the log message
     type: Levels; // the log type
