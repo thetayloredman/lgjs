@@ -38,4 +38,4 @@ jobs:
 
             # commit
             - name: Commit and push
-              run: git commit -m "Rebuild Docs" && git push
+              run: git add . && git commit -m "Rebuild Docs" && git push
