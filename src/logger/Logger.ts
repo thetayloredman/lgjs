@@ -30,13 +30,18 @@ export default class Logger {
     /**
      * Creates a new Logger.
      * @param facility The facility (location) of the logger
-     * @param options The options to pass the logger
+     * @param options The options to pass the logger. Note that global.__lgjs__globalOptions__ will be used if unspecified.
      */
     public constructor(facility: string, options?: LoggerOptions) {
-        options ??= {};
+        // @ts-ignore
+        if (!options && global.__lgjs__globalOptions__) {
+            // @ts-ignore
+            options = global.__lgjs__globalOptions__;
+        }
+        options ??= {}
         this.facility = facility;
         this.file = new LogFile(options.file);
-        this.doLog = options.log ?? false;
+        this.doLog = options.log ?? true;
     }
 
     /**

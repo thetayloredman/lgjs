@@ -16,10 +16,13 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import Logger from './logger/Logger';
-import LogFile from './logger/LogFile';
-import Parser from './parser/Parser';
-import setGlobalOptions from './setGlobalOptions';
+import LoggerOptions from "./interfaces/LoggerOptions";
 
-export default Logger;
-export { Logger, LogFile, Parser, setGlobalOptions };
+/**
+ * Defines global.__lgjs__globalOptions__
+ * @param newOptions The new options to set
+ */
+export default function setGlobalOptions(newOptions: LoggerOptions): void {
+    // @ts-ignore
+    global.__lgjs__globalOptions__ = newOptions;
+}
