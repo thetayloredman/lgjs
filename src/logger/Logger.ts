@@ -38,7 +38,7 @@ export default class Logger {
             // @ts-ignore
             options = global.__lgjs__globalOptions__;
         }
-        options ??= {}
+        options ??= {};
         this.facility = facility;
         this.file = new LogFile(options.file);
         this.doLog = options.log ?? true;
