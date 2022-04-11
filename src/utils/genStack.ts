@@ -18,7 +18,8 @@
 
 /**
  * Generates a stack trace
- * @returns The stack teace
+ * @returns The stack trace
+ * @private
  */
 export default function genStack(): string[] {
     const tempErr = new Error();

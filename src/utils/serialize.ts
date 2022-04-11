@@ -21,6 +21,7 @@ import { inspect } from 'util';
 /**
  * Serializes data
  * @param data The data to serialize
+ * @private
  */
 export default function serialize(data: any): string | undefined {
     return typeof data === 'string' ? data : inspect(data, undefined, undefined, false);

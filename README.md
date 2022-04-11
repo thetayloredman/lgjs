@@ -1,25 +1,8 @@
 # lgjs
 
-## Updating from v1 to v2
+## Updating from v2 to v3
 
-In order to update to v2, you need to note the main breaking change in it.
-
-> feat!: Default to logging
-> 
-> Now we default to logging to the console.
-> 
-> **BREAKING CHANGE:** we now log to the console by default
-
-This means you don't need to specify `log` (`boolean`) in your `Logger` instances as it now defaults to `true`.
-
-If you want to avoid logging, you **must** specify `log: false` in your `LoggerOptions`.
-
-To install v2, run
-```bash
-npm install lgjs@latest
-# OR
-yarn add lgjs@latest
-```
+No significant changes will be needed to your code. Some functions are now private (e.g. ensure).
 
 ## What is lgjs?
 

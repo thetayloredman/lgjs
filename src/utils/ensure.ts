@@ -22,6 +22,7 @@ import * as fs from 'fs';
 /**
  * Ensures that a folder exists
  * @param path The path to ensure
+ * @private
  */
 export function ensureDir(path: string): void {
     try {
@@ -39,6 +40,7 @@ export function ensureDir(path: string): void {
  * Ensures that a file exists
  * @param path The path to ensure
  * @param defaultContent The content to put in
+ * @private
  */
 export function ensureFile(path: string, defaultContent: string = ''): void {
     try {
